@@ -43,4 +43,12 @@ public void löschen(int[] zeilen){
         fireTableDataChanged();
 
 }
+public void setTemp(int z,double temp) throws Exception{
+    list.get(z).setTemp(temp);
+            fireTableDataChanged();
+            }
+public void setHuman(int z,int hum) throws Exception{
+    list.get(z).setHumidity(hum); 
+     fireTableDataChanged();
+}
 }

@@ -41,8 +41,8 @@ public class Wetterstation {
         this.sealevel = sealevel;
     }
 
-    public void setHumidity(int humidity) {
-       
+    public void setHumidity(int humidity) throws Exception {
+       if(humidity<0||humidity>100)throw new Exception("Bitte einen anderen Humanidity wählen!");
         this.humidity = humidity;
     }
 

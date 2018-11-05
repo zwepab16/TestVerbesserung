@@ -1,5 +1,9 @@
 package gui;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 
 public class WeatherGUI extends javax.swing.JFrame {
 private WetterTableModel model=new WetterTableModel();
@@ -64,9 +68,19 @@ private WetterTableModel model=new WetterTableModel();
         jMenu2.setText("Values");
 
         miSetTemp.setText("Set Temperature");
+        miSetTemp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSetTempActionPerformed(evt);
+            }
+        });
         jMenu2.add(miSetTemp);
 
         miSetHum.setText("Set Humidity");
+        miSetHum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSetHumActionPerformed(evt);
+            }
+        });
         jMenu2.add(miSetHum);
 
         jMenuBar1.add(jMenu2);
@@ -99,6 +113,22 @@ private WetterTableModel model=new WetterTableModel();
     int[] i=tabWheater.getSelectedRows();
     model.löschen(i);
     }//GEN-LAST:event_miRemoveActionPerformed
+
+    private void miSetTempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSetTempActionPerformed
+    try {
+        model.setTemp(tabWheater.getSelectedRow(), Integer.parseInt(JOptionPane.showInputDialog("Neue Temperatur eingeben!")));
+    } catch (Exception ex) {
+       JOptionPane.showMessageDialog(null,ex.getMessage());
+    }
+    }//GEN-LAST:event_miSetTempActionPerformed
+
+    private void miSetHumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSetHumActionPerformed
+    try {
+        model.setHuman(tabWheater.getSelectedRow(), Integer.parseInt(JOptionPane.showInputDialog("Neue Humanidity eingeben!")));
+    } catch (Exception ex) {
+         JOptionPane.showMessageDialog(null,ex.getMessage());
+    }
+    }//GEN-LAST:event_miSetHumActionPerformed
 
     public static void main(String args[]) {
      
