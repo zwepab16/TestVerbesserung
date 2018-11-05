@@ -8,6 +8,7 @@ private WetterTableModel model=new WetterTableModel();
     public WeatherGUI() {
         initComponents();
         tabWheater.setModel(model);
+        tabWheater.setDefaultRenderer(Object.class, new WetterTableRenderer());
     }
 
    

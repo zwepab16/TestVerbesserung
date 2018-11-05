@@ -32,18 +32,23 @@ public class Wetterstation {
     }
 
     public void setPlace(String place) {
+       
         this.place = place;
     }
 
     public void setSealevel(int sealevel) {
+       
         this.sealevel = sealevel;
     }
 
     public void setHumidity(int humidity) {
+       
         this.humidity = humidity;
     }
 
-    public void setTemp(double temp) {
+    public void setTemp(double temp) throws Exception {
+        if(temp<-35||temp>45)throw new Exception("Bitte einen anderen Temperaturwert wählen!");
+        
         this.temp = temp;
     }
     

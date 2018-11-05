@@ -7,13 +7,13 @@ import javax.swing.table.AbstractTableModel;
 
 public class WetterTableModel extends AbstractTableModel{
 private ArrayList<Wetterstation> list=new ArrayList<>();
-  private String[] überschriften={"Place","Sea Level","Temperature","rel. Humidity"};
+  private String[] Ã¼berschriften={"Place","Sea Level","Temperature","rel. Humidity"};
     @Override
     public int getRowCount() {
       return list.size();
     }
     public String getColumnName(int i){
-    return überschriften[i];
+    return Ã¼berschriften[i];
 }
 
     @Override
@@ -23,7 +23,7 @@ private ArrayList<Wetterstation> list=new ArrayList<>();
 
     @Override
     public Object getValueAt(int i, int i1) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      return list.get(i);
     }
     public void add(Wetterstation w){
         list.add(w);
