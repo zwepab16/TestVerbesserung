@@ -1,6 +1,7 @@
 
 package gui;
 
+import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JLabel;
 import javax.swing.JTable;
@@ -29,6 +30,12 @@ public class WetterTableRenderer implements TableCellRenderer{
             default:
                 label.setText("???");
         }
+        if(bln){
+            label.setBackground(Color.green);
+        }
+        label.setOpaque(true);
+        
+        
         return label;
     }
 

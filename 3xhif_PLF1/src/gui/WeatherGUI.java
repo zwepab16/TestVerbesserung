@@ -96,7 +96,8 @@ private WetterTableModel model=new WetterTableModel();
     }//GEN-LAST:event_miAddActionPerformed
 
     private void miRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRemoveActionPerformed
-       
+    int[] i=tabWheater.getSelectedRows();
+    model.löschen(i);
     }//GEN-LAST:event_miRemoveActionPerformed
 
     public static void main(String args[]) {
