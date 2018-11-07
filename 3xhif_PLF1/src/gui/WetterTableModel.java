@@ -1,6 +1,12 @@
 
 package gui;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -51,4 +57,24 @@ public void setHuman(int z,int hum) throws Exception{
     list.get(z).setHumidity(hum); 
      fireTableDataChanged();
 }
+public void save() throws Exception{
+    
+    File f=new File(".\\daten.ser");
+    FileOutputStream fos=new FileOutputStream(f);
+    ObjectOutputStream oos=new ObjectOutputStream(fos);
+    oos.writeObject(list);
+    oos.flush();
+    fos.close();
+       fireTableDataChanged();
+}
+public void laden() throws Exception{
+    
+    File f=new File(".\\daten.ser");
+    FileInputStream fis=new FileInputStream(f);
+    ObjectInputStream ois=new ObjectInputStream(fis);
+    list=(ArrayList<Wetterstation>)ois.readObject();
+   fis.close();
+   fireTableDataChanged();
+}
+
 }

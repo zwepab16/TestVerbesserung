@@ -1,8 +1,10 @@
 
 package gui;
 
+import java.io.Serializable;
 
-public class Wetterstation {
+
+public class Wetterstation implements Serializable{
 
     private String place;
     private int sealevel, humidity;

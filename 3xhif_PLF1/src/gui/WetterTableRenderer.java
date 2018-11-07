@@ -23,6 +23,7 @@ public class WetterTableRenderer implements TableCellRenderer{
                 break;
             case 2:
                 label.setText(String.format("%.1f°", w.getTemp()));
+                
                 break;
                  case 3:
                 label.setText(w.getHumidity()+" %");
@@ -31,11 +32,18 @@ public class WetterTableRenderer implements TableCellRenderer{
                 label.setText("???");
         }
         if(bln){
-            label.setBackground(Color.green);
+            label.setBackground(Color.gray);
+              
+        }
+        if(w.getTemp()>25&&w.getHumidity()<20)label.setBackground(Color.yellow);
+        if(w.getTemp()<0&&w.getHumidity()<30)label.setBackground(Color.blue);
+        if(w.getTemp()>0&&w.getTemp()<25&&w.getHumidity()>50)label.setBackground(Color.green);
+        
+         if(bln){
+            label.setBackground(Color.gray);
+              
         }
         label.setOpaque(true);
-        
-        
         return label;
     }
 

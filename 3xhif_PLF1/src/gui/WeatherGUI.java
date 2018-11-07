@@ -26,6 +26,8 @@ private WetterTableModel model=new WetterTableModel();
         jMenu1 = new javax.swing.JMenu();
         miAdd = new javax.swing.JMenuItem();
         miRemove = new javax.swing.JMenuItem();
+        miSave = new javax.swing.JMenuItem();
+        miLaden = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         miSetTemp = new javax.swing.JMenuItem();
         miSetHum = new javax.swing.JMenuItem();
@@ -62,6 +64,22 @@ private WetterTableModel model=new WetterTableModel();
             }
         });
         jMenu1.add(miRemove);
+
+        miSave.setText("Save");
+        miSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miSaveActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miSave);
+
+        miLaden.setText("Laden");
+        miLaden.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miLadenActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miLaden);
 
         jMenuBar1.add(jMenu1);
 
@@ -130,6 +148,25 @@ private WetterTableModel model=new WetterTableModel();
     }
     }//GEN-LAST:event_miSetHumActionPerformed
 
+    private void miSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSaveActionPerformed
+    try {
+        model.save();
+        JOptionPane.showMessageDialog(null, "Speichern erfolgreich!");
+    } catch (Exception ex) {
+        System.out.println(ex.getMessage()+"(Speichern)");
+    }
+    }//GEN-LAST:event_miSaveActionPerformed
+
+    private void miLadenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miLadenActionPerformed
+       
+    try {
+        model.laden();
+        JOptionPane.showMessageDialog(null, "Laden erfolgreich!");
+    } catch (Exception ex) {
+               System.out.println(ex.getMessage()+"(Laden)");
+    }
+    }//GEN-LAST:event_miLadenActionPerformed
+
     public static void main(String args[]) {
      
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -145,7 +182,9 @@ private WetterTableModel model=new WetterTableModel();
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JMenuItem miAdd;
+    private javax.swing.JMenuItem miLaden;
     private javax.swing.JMenuItem miRemove;
+    private javax.swing.JMenuItem miSave;
     private javax.swing.JMenuItem miSetHum;
     private javax.swing.JMenuItem miSetTemp;
     private javax.swing.JTable tabWheater;
